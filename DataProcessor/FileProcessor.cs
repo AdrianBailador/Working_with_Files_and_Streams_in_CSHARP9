@@ -33,10 +33,15 @@ namespace DataProcessor
             //if (!Directory.Exists(backupDirectoryPath))
             //{
                 WriteLine($"Attempting to create {backupDirectoryPath}");
-                Directory.CreateDirectory(backupDirectoryPath); 
+                Directory.CreateDirectory(backupDirectoryPath);
 
             //}
 
+            // Copy file to backup dir
+            string inputFileName = Path.GetFileName(InputFilePath);
+            string backupFilePath = Path.Combine(backupDirectoryPath, inputFileName);
+            WriteLine($"Copying {InputFilePath} to {backupFilePath}");
+            File.Copy(InputFilePath, backupFilePath, true);
         }
     }
 }
