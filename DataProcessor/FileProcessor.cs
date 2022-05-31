@@ -21,6 +21,11 @@ namespace DataProcessor
                 return;
             }
 
+            string rootDirectoryPath = new DirectoryInfo(InputFilePath).Parent.Parent.FullName;
+            WriteLine($"Root data path is {rootDirectoryPath}");
+
+
+
         }
     }
 }
